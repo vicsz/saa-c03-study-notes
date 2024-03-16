@@ -1,6 +1,8 @@
 # AWS Certified Solutions Architect (SAA-C03) Study Notes: S3
 
-## Overview
+# Storage
+
+## AWS S3
 
 - **Amazon S3** is a highly durable, object storage service designed for storing large, unstructured data sets like files.
 - Use cases include serving website static assets, content storage, and backup.
