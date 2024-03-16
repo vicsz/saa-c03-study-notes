@@ -50,7 +50,7 @@
   - **RDS Proxy:** For Lambda functions accessing RDS, use RDS Proxy to manage connections efficiently, improving performance.
   - **Running Lambda@Edge:** For applications needing lower latency by running code closer to users' locations.
 
-### Supplemental Services
+### Computer - Supplemental Services
 
 #### ECS, EKS, Fargate
 - **Key for container management and orchestration.** Understand the distinctions among these services in terms of container management. ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service) provide comprehensive solutions for container orchestration, with ECS being AWS-native and EKS for those preferring Kubernetes. Fargate offers a serverless container execution environment, removing the need to manage servers or clusters.
@@ -62,7 +62,7 @@
 #### Batch
 - **Essential for efficiently running batch computing jobs** on AWS, capable of managing hundreds to thousands of jobs. This service automates job scheduling, making it easier to run large-scale batch processes.
 
-### Computer - Exam Preparation Tips
+### Compute - Exam Preparation Tips
 
 - **Focus on EC2's detailed options for cost and performance optimization.** Placement groups and their specific use cases are critical to understand for performance-sensitive applications.
 - **Lambda's pricing model** is influenced by the number of requests and the duration of code execution. Optimizing Lambda functions to minimize cold starts and leveraging RDS Proxy for efficient database interactions are key strategies for enhancing performance.
