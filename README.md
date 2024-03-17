@@ -1,6 +1,6 @@
 ## COMPUTE
 
-### EC2 Overview
+### AWS EC2 
 Amazon EC2 offers a scalable environment in AWS to launch virtual servers, configure security and networking, and manage storage. EC2 provides various options for flexibility, efficiency, and cost-effectiveness in cloud computing needs.
 
 #### Features
@@ -50,7 +50,7 @@ Amazon EC2 offers a scalable environment in AWS to launch virtual servers, confi
 
 ---
 
-### Lambda Overview
+### AWS Lambda 
 AWS Lambda is a serverless computing service that runs code in response to events, automatically managing the underlying compute resources. It enables running code for virtually any type of application or backend service with zero administration.
 
 #### Features
@@ -78,3 +78,113 @@ AWS Lambda is a serverless computing service that runs code in response to event
 - **Batch**: AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS.
 - **Glue**: A fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics.
 - **Beanstalk**: AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS.
+
+---
+
+## STORAGE
+
+### AWS S3
+Amazon S3 is a key/value bucket store designed for storing large files with high durability without the need for traditional backups, providing the most cost-effective storage solution on AWS.
+
+#### Features
+- **S3 Storage Classes**: Includes S3 Standard, S3 Express One Zone, S3 Standard-Infrequent Access, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive for diverse storage needs and access patterns.
+- **S3 Select**: Allows retrieval of specific data from objects using SQL expressions, enhancing performance and reducing costs by minimizing the amount of data loaded and processed.
+- **S3 Pre-signed URLs**: Generate temporary URLs for secure sharing or uploading of files without revealing bucket contents.
+- **S3 Multipart Upload**: Enables large files to be uploaded in parts, improving transfer speeds and reliability.
+- **S3 Transfer Acceleration**: Speeds up file transfers to and from S3 using Amazon CloudFront's globally distributed edge locations.
+- **S3 Lifecycle Management**: Automates moving files between different storage classes and managing expiration of objects.
+- **S3 Versioning**: Keeps multiple versions of an object in a bucket, protecting against unintended overwrites and deletions. It is disabled by default.
+- **S3 CORS**: Enables web applications to request resources from a different domain.
+- **S3 Encryption**: Offers methods for encrypting objects stored in S3, enhancing data security.
+- **S3 Object Lock**: Allows users to store objects using a write-once-read-many (WORM) model with two modes: Governance and Compliance Mode, supporting legal holds and retention periods.
+- **S3 Glacier**: A secure, durable, and low-cost storage class for data archiving and long-term backup.
+- **MFA Delete**: Adds an additional layer of security by requiring MFA to delete objects.
+- **Requester Pays**: Enables bucket owners to shift data transfer charges to requesters.
+- **Amazon S3 Intelligent Tiering**: Automatically moves objects between different tiers based on access patterns.
+- **S3 Object Lambda**: Allows adding custom code to S3 GET, HEAD, and LIST requests for processing data on retrieval.
+- **AWS Athena**: Provides SQL querying of S3 data in place, ideal for analyzing data directly in S3.
+- **CloudFront**: Can host static websites directly from S3 buckets.
+- **S3 Storage Lens**: Offers insights into access patterns and identifies opportunities for cost optimization.
+- **S3 Analytics**: Tools for analyzing storage access patterns, aiding in lifecycle policy decisions.
+- **S3 Outposts**: Brings S3 to on-premises AWS Outposts environments for a consistent hybrid experience.
+
+#### Cost Considerations
+- **Intelligent Tiering**: Best for unpredictable file access patterns, automatically optimizing costs.
+- **Lifecycle Management**: Transition objects to less expensive storage classes based on access patterns and retention policies to reduce costs.
+- **CloudFront**: Reduces costs by minimizing S3 access charges.
+
+#### Performance Considerations
+- **Cross-Region Replication**: Enhances data availability and accessibility across geographies.
+- **CloudFront**: Lowers latency by caching content closer to the end users.
+
+#### Security Considerations
+- **Encryption at Rest**: Offers several encryption options including SSE-S3 (AES-256), SSE-KMS (for key management control), and SSE-C (customer-provided keys).
+- **Origin Access Identity (OAI)**: Restricts access to S3 content, ensuring it can only be accessed via CloudFront.
+
+---
+
+### AWS DynamoDB
+Amazon DynamoDB is a NoSQL database service known for its key/value storage, millisecond latency, and high throughput capabilities, suitable for real-time applications. Backups are recommended to ensure data durability.
+
+#### Features
+- **DynamoDB Accelerator (DAX)**: In-memory caching for DynamoDB, reducing response times from milliseconds to microseconds.
+- **DynamoDB Streams**: Captures item-level modifications in DynamoDB tables, enabling integration with other AWS services.
+- **Read Types**: Supports eventually consistent and conditional writes for efficient data retrieval and management.
+- **Queries vs Scans**: Queries retrieve data using the primary key attribute for efficient access, whereas Scans examine all items, which can be less efficient.
+- **Time To Live (TTL)**: Automatically deletes items after a specified period, helping manage expirable data and reduce storage costs.
+- **Global Tables**: Provides fully managed, multi-region, and multi-master database tables for global applications.
+- **Capacity Models**: Offers Provisioned Throughput for predictable workloads and On-Demand for flexible scaling.
+- **Point-in-Time Recovery (PITR)**: Enables recovery to any second in the last 35 days, enhancing data protection.
+- **Global Tables and Replication**: Facilitates low-latency access and disaster recovery across multiple AWS regions.
+
+---
+
+#### AWS RDS
+Amazon RDS is a managed relational database service that simplifies setting up, operating, and scaling a relational database in the cloud. It supports several database engines and combines the reliability of EBS-backed storage with the convenience of automated backups.
+
+#### Features
+- **Database Engines**: Supports MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server.
+- **Amazon RDS Custom for Oracle**: Provides access to underlying Oracle instance settings for advanced configuration.
+- **Aurora**: An AWS-designed database that offers compatibility with MySQL and PostgreSQL, featuring serverless scaling, global distribution, and efficient cloning capabilities.
+- **RDS Event Notification**: Alerts users about changes to the database infrastructure.
+- **RDS Proxy**: Manages database connections, improving scalability and security.
+- **Read Replicas and Multi-AZ Deployments**: Enhances database performance and availability.
+- **Auto-scaling**: Automatically adjusts storage capacity based on demand.
+- **Backup Options**: Includes automated backups, cross-region backups, snapshot backups, AWS Backups, and replication to a standby database for comprehensive data protection.
+
+---
+
+#### AWS EBS
+
+#### Overview
+Amazon Elastic Block Store (EBS) provides block-level storage volumes for use with EC2 instances, offering high availability and durability. EBS volumes can be used as primary storage for databases or file systems and support backups through AWS Backup and the Data Lifecycle Manager.
+
+#### Features
+- **Single Instance Attachment**: Typically, an EBS volume can be attached to only one EC2 instance at a time.
+- **Fast Snapshot Restore**: Enables quick recovery of EC2 instances by providing faster access to snapshot data.
+- **EBS Data Lifecycle Manager**: Automates the creation, retention, and deletion of snapshots, separate from AWS Backup.
+- **EBS Multi-Attach**: Allows an EBS volume to be attached to multiple EC2 instances within the same Availability Zone.
+
+---
+
+#### AWS EFS
+
+#### Overview
+Amazon Elastic File System (EFS) is a fully managed, scalable file storage solution for use with AWS Cloud services and on-premises resources. It supports NFS and automatically scales without needing to provision storage or throughput.
+
+#### Features
+- **Compatibility**: Works with Linux-based AMIs but not with Windows instances.
+- **Multi-Instance Connectivity**: Unlike EBS, EFS can be mounted on multiple EC2 instances simultaneously.
+- **Automatic Scaling**: EFS scales automatically with the amount of stored data, removing the need for manual capacity management.
+
+### Supplemental Services
+- **Redshift**: Data warehousing service for running massive scale analytics.
+- **EMR**: Managed Hadoop framework for processing large data sets across dynamically scalable Amazon EC2 instances.
+- **DocumentDB**: Compatible with MongoDB, designed for modern application development needs.
+- **Neptune**: Managed graph database service for building and running applications that work with highly connected datasets.
+- **LakeFormation**: Simplifies the process of building, securing, and managing data lakes.
+- **Amazon MQ**: Managed message broker service for Apache ActiveMQ and RabbitMQ, ideal for migrating traditional applications to the cloud.
+- **ElastiCache**: In-memory caching service, supporting Redis and Memcached, enhances the performance of web applications by allowing retrieval of data from fast, managed, in-memory caches.
+- **TimeStream**: Time series database service for IoT and operational applications.
+- **AWS Backup**: Centralized backup service across AWS services.
+- **AWS Schema Conversion Tool**: Facilitates database migration projects by converting the source database schema and a majority of the custom code to a format compatible with the target database.
