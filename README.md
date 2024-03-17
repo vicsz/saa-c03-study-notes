@@ -71,7 +71,7 @@ AWS Lambda is a serverless computing service that runs code in response to event
 #### Cost Considerations
 - Eligible for Compute Savings Plans, allowing for reduced costs through a commitment to a consistent level of compute usage.
 
-#### Supplemental Services
+#### Compute Supplemental Services
 - **Fargate**: Provides a serverless compute engine for containers, eliminating the need to manage servers or clusters.
 - **EKS**: Amazon Elastic Kubernetes Service is a managed service that makes it easy to run Kubernetes on AWS without needing to install and operate your own Kubernetes control plane.
 - **ECS**: Amazon Elastic Container Service is a fully managed container orchestration service, providing an easy way to run and scale containerized applications on AWS.
@@ -135,7 +135,21 @@ Amazon DynamoDB is a NoSQL database service known for its key/value storage, mil
 - **Global Tables**: Provides fully managed, multi-region, and multi-master database tables for global applications.
 - **Capacity Models**: Offers Provisioned Throughput for predictable workloads and On-Demand for flexible scaling.
 - **Point-in-Time Recovery (PITR)**: Enables recovery to any second in the last 35 days, enhancing data protection.
-- **Global Tables and Replication**: Facilitates low-latency access and disaster recovery across multiple AWS regions.
+
+#### Cost Considerations
+- Consider on-demand capacity for unpredictable workloads.
+- Use provisioned capacity for predictable workloads with consistent throughput needs.
+
+#### Performance Considerations
+- Use DAX for caching frequently accessed items.
+- Optimize query and scan operations to minimize response times and consumed capacity.
+
+#### High Availability Considerations
+- Utilize Global Tables for cross-region redundancy.
+
+#### Backup Options
+- **DynamoDB Backups**: Enable point-in-time recovery for continuous backups and restoration.
+- **AWS Backup**: Centralized backup service that also supports DynamoDB for managing backups across AWS services.
 
 ---
 
@@ -152,6 +166,23 @@ Amazon RDS is a managed relational database service that simplifies setting up, 
 - **Auto-scaling**: Automatically adjusts storage capacity based on demand.
 - **Backup Options**: Includes automated backups, cross-region backups, snapshot backups, AWS Backups, and replication to a standby database for comprehensive data protection.
 
+#### Cost Considerations
+- Reserved Instance pricing for the database engine (CPU, RAM) can provide significant savings.
+- Optimize storage costs by adjusting allocation and using auto-scaling.
+
+#### Performance Considerations
+- Add Read Replicas to distribute read traffic.
+- Use RDS Proxy to manage connections efficiently.
+
+#### High Availability Considerations
+- Deploy Multi-AZ or Aurora Global Database for enhanced availability and data durability.
+
+#### Backup Options
+- **Automated Backups**: Provides a daily snapshot and captures transaction logs.
+- **Snapshot Backups**: User-initiated snapshots of your database instance that are retained until explicitly deleted.
+- **AWS Backup**: Offers a centralized solution for backing up RDS and other AWS services.
+- **Cross-Region Automated Backups**: Automates the replication of snapshots and transaction logs across AWS regions.
+
 ---
 
 #### AWS EBS
@@ -165,11 +196,19 @@ Amazon Elastic Block Store (EBS) provides block-level storage volumes for use wi
 - **EBS Data Lifecycle Manager**: Automates the creation, retention, and deletion of snapshots, separate from AWS Backup.
 - **EBS Multi-Attach**: Allows an EBS volume to be attached to multiple EC2 instances within the same Availability Zone.
 
+#### Cost Considerations
+- Optimize costs by selecting the appropriate volume type and size for your workload.
+
+#### Performance Considerations
+- Choose the right EBS volume type (e.g., Provisioned IOPS) for your workload requirements.
+
+#### Backup Options
+- **EBS Snapshots**: Create point-in-time snapshots of EBS volumes.
+- **AWS Backup**: Centralized backup service for EBS volumes and other AWS resources.
+
 ---
 
 #### AWS EFS
-
-#### Overview
 Amazon Elastic File System (EFS) is a fully managed, scalable file storage solution for use with AWS Cloud services and on-premises resources. It supports NFS and automatically scales without needing to provision storage or throughput.
 
 #### Features
@@ -177,7 +216,12 @@ Amazon Elastic File System (EFS) is a fully managed, scalable file storage solut
 - **Multi-Instance Connectivity**: Unlike EBS, EFS can be mounted on multiple EC2 instances simultaneously.
 - **Automatic Scaling**: EFS scales automatically with the amount of stored data, removing the need for manual capacity management.
 
-### Supplemental Services
+#### Cost Considerations
+- Utilize EFS Infrequent Access (EFS IA) with Lifecycle Management to reduce costs for rarely accessed files.
+
+---
+
+### Storage Supplemental Services
 - **Redshift**: Data warehousing service for running massive scale analytics.
 - **EMR**: Managed Hadoop framework for processing large data sets across dynamically scalable Amazon EC2 instances.
 - **DocumentDB**: Compatible with MongoDB, designed for modern application development needs.
