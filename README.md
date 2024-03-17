@@ -435,7 +435,7 @@ Offers centralized management for AWS and on-premises resources, simplifying res
 - **Resource Groups Tag Editor**: Simplifies resource management by organizing resources based on tags.
 - **AWS SAM (Serverless Application Model)**: Framework for building serverless applications with simplified template and deployment functions.
 
-### Other Services
+## OTHER SERVICES
 - **Amazon Pinpoint**: Engages customers with targeted communications through various channels.
 - **AWS AppFlow**: Integrates SaaS applications with AWS services.
 - **AWS Textract**: Extracts text and data from documents.
