@@ -290,7 +290,7 @@ Amazon Kinesis makes it easy to collect, process, and analyze real-time, streami
 
 ---
 
-## Networking
+## NETWORKING
 
 ### Direct Connect
 Provides a dedicated, physical connection between your on-premises network and AWS. It ensures minimal impact on internet connectivity for internal users and supports more time-sensitive data transfer.
@@ -339,3 +339,44 @@ Improves the availability and performance of your applications with global traff
 Provides private connectivity between VPCs, AWS services, and on-premises applications, securely on the AWS network. Ideal for accessing AWS services or exposing your services to other VPCs without exposing data to the public internet.
 
 ---
+
+## SECURITY, IDENTITY, & COMPLIANCE
+
+### IAM (Identity and Access Management)
+- **IAM Role**: Designed for AWS services to interact with other AWS resources, e.g., an EC2 instance assuming a role to access S3.
+- **IAM Policy**: Defines permissions and can be attached to users, groups, and roles to grant access rights. Policies detail what actions are allowed or denied on resources.
+- **Policies on Roles**: IAM policies can be applied to roles to manage permission settings for services and applications.
+
+### KMS (Key Management Service)
+Offers managed creation and control of encryption keys used to encrypt your data. KMS supports automatic key rotation, enhancing security for encrypted data.
+
+### Cognito
+Provides user identity and data synchronization services, enabling secure user access and authentication for mobile and web applications.
+
+### STS (Security Token Service)
+Grants temporary, limited-privilege credentials for IAM users or for users that you authenticate (federated users), ideal for scenarios requiring short-term access to AWS resources.
+
+### HSM (Hardware Security Module)
+Offers a physical hardware appliance to manage cryptographic keys securely within your own VPC, ensuring protection for the keys used to encrypt your data.
+
+### Shield
+Provides DDoS protection to safeguard AWS applications, automatically protecting EC2, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, and Route 53.
+
+### WAF (Web Application Firewall)
+Protects web applications from common web exploits and bots that may affect availability, compromise security, or consume excessive resources.
+
+### Secrets Manager
+Helps to securely encrypt, store, and retrieve credentials for databases and other services. Also supports automatic rotation of secrets without needing to update your applications.
+
+### Service Control Policies (SCP)
+Part of AWS Organizations, SCPs allow you to manage permissions in your organization, enabling you to control the actions that members in your organization can take.
+
+### GuardDuty
+A threat detection service that continuously monitors for malicious or unauthorized behavior to help protect your AWS accounts and workloads.
+
+### AWS Control Tower
+Automates the setup of a baseline environment, or landing zone, that is secure, well-architected, and multi-account based on AWS best practices.
+
+### Organizations
+Enables policy-based management for multiple AWS accounts, allowing you to consolidate billing, control access, compliance, and share resources across your AWS accounts.
+
