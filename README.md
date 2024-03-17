@@ -14,6 +14,23 @@
 #### Good Write-up on VPC’s and Networking
 - [AWS VPC Core Concepts Analogy Guide](https://start.jcolemorrison.com/aws-vpc-core-concepts-analogy-guide/)
 
+## ChatGPT Study Aid for AWS Solutions Architect Associate Exam Examples 
+
+**Study Scenario and Prompt**:
+"A company runs a public-facing three-tier web application in a VPC across multiple Availability Zones. Amazon EC2 instances for the application tier running in private subnets need to download software patches from the internet. However, the EC2 instances cannot be directly accessible from the internet. Which actions should be taken to allow the EC2 instances to download the needed patches? (Select TWO.) 
+A) Configure a NAT gateway in a public subnet. 
+B) Define a custom route table with a route to the NAT gateway for internet traffic and associate it with the private subnets for the application tier. 
+C) Assign Elastic IP addresses to the EC2 instances. 
+D) Define a custom route table with a route to the internet gateway for internet traffic and associate it with the private subnets for the application tier. 
+E) Configure a NAT instance in a private subnet."
+
+Given this scenario, please:
+1. **Explain the supplied problem **
+2. **Explain the correct answer**: 
+3. **Explain the wrong answer**
+4. **Offer any rules of thumb for the exam**: Provide general principles or guidelines that could help in answering similar questions on the AWS Solutions Architect Associate exam"
+
+
 ## COMPUTE
 
 Choosing between EC2, Fargate, and Lambda:
