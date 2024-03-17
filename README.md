@@ -1,3 +1,20 @@
+### USEFUL LINKS
+
+#### Official Exam Guide
+- [AWS Certified Solutions Architect Associate Exam Guide](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf)
+
+#### Study Guides
+- [Digital Cloud Training AWS Cheat Sheets](https://digitalcloud.training/category/aws-cheat-sheets/aws-solutions-architect-associate/)
+- [Stellex Group AWS SAA-C03 Cheat Sheet](https://www.stellexgroup.com/blog/aws-solutions-architect-associate-saa-c03-cheat-sheet)
+- [Tutorials Dojo AWS SAA-C03 Study Materials](https://tutorialsdojo.com/aws-certified-solutions-architect-associate-saa-c03/)
+
+#### Sample Questions
+- [AWS Certified Solutions Architect Associate Sample Questions](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Sample-Questions.pdf)
+- [Free Braindumps SAA-C03 Questions](https://free-braindumps.com/amazon/free-saa-c03-braindumps.html?p=5)
+
+#### Good Write-up on VPC’s and Networking
+- [AWS VPC Core Concepts Analogy Guide](https://start.jcolemorrison.com/aws-vpc-core-concepts-analogy-guide/)
+
 ## COMPUTE
 
 ### AWS EC2 
@@ -380,3 +397,52 @@ Automates the setup of a baseline environment, or landing zone, that is secure, 
 ### Organizations
 Enables policy-based management for multiple AWS accounts, allowing you to consolidate billing, control access, compliance, and share resources across your AWS accounts.
 
+---
+
+## MANAGEMENT AND GOVERNANCE
+
+### CloudWatch
+Monitors AWS resources and applications in real-time, providing insights on operational health, such as CPU usage and disk read/write metrics. Utilize CloudWatch Agent for extended monitoring data.
+
+- **CloudWatch Composite Metrics**: Combine multiple metrics to create a single time-series metric.
+- **CloudWatch Dashboard**: Shareable with individuals outside the AWS account for cross-team visibility. Dashboards can be displayed publicly, aiding in collaborative monitoring and reporting.
+- **Amazon OpenSearch Service Integration**: For advanced search and analytics capabilities, supporting large dataset processing and visualization via Kibana.
+
+### CloudTrail
+Records AWS account activity, tracking user and service actions like API calls and account changes, crucial for security and audit trails.
+
+### Config
+Automates AWS resource configuration tracking for compliance auditing, supporting automated tagging and configuration rule enforcement.
+
+### Systems Manager
+Offers centralized management for AWS and on-premises resources, simplifying resource administration and automation.
+
+- **Session Manager**: Secure, browser-based management for instances without inbound port or SSH key requirements.
+- **Patch Manager**: Streamlines the application of patches for security and maintenance.
+- **Maintenance Window**: Schedules maintenance tasks to minimize operational disruption.
+- **Run Command**: Executes ad-hoc administrative tasks across your AWS resources.
+
+### AWS Cost Management Tools
+- **Cost Explorer**: Analyzes AWS spending patterns, offering insights for cost optimization.
+- **AWS Budgets**: Monitors spending against budgets, with alerts to prevent overages.
+- **Cost and Usage Report**: Delivers detailed cost and usage data, supporting deep financial analysis and accountability.
+- **Billing and Cost Management Dashboard**: Provides a summarized view of current spending and forecasts.
+
+### Other Management Tools
+- **Parameter Store**: Manages, retrieves, and stores configuration data securely.
+- **Trusted Advisor**: Offers recommendations for resource optimization and security improvements.
+- **CloudFormation**: Automates the provisioning and management of AWS resources with Infrastructure as Code (IaC).
+- **Resource Groups Tag Editor**: Simplifies resource management by organizing resources based on tags.
+- **AWS SAM (Serverless Application Model)**: Framework for building serverless applications with simplified template and deployment functions.
+
+### Other Services
+- **Amazon Pinpoint**: Engages customers with targeted communications through various channels.
+- **AWS AppFlow**: Integrates SaaS applications with AWS services.
+- **AWS Textract**: Extracts text and data from documents.
+- **AWS Comprehend**: Provides natural language processing (NLP) capabilities.
+- **AWS Macie**: Identifies and protects sensitive data.
+- **Amazon Rekognition**: Analyzes images and videos for content moderation.
+- **Amazon QuickSight**: Business intelligence service for data visualization.
+- **AWS OpsWorks**: Configuration management service using Chef and Puppet.
+- **AWS X-Ray**: Offers distributed tracing for application debugging.
+- **AWS Data Exchange**: Facilitates secure data exchange between AWS customers.
