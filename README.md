@@ -1,70 +1,80 @@
-## Compute
+## COMPUTE
 
-### EC2 (Amazon Elastic Compute Cloud)
-- **Features:**
-  - **Instance Types:** Variety optimized for various use cases such as general purpose, compute, memory, storage, accelerated computing.
-  - **Purchasing Options:** On-Demand, Reserved Instances, Spot Instances, Savings Plans, Dedicated Hosts, Dedicated Instances.
-  - **Elastic Load Balancing:** Automatically distributes incoming traffic across multiple EC2 instances.
-  - **Auto Scaling:** Dynamically adjusts EC2 capacity according to conditions.
-  - **Launch Configurations and Templates:** Templates specify instance configuration settings; Launch Configurations are deprecated in favor of Templates.
-  - **Placement Groups:** Options include Cluster (low-latency, high-throughput), Spread (isolated instances), and Partition (multiple partitions for large distributed applications).
-  - **EBS Integration:** Attach persistent storage volumes to instances.
-  - **Networking:** Supports multiple network interfaces, private IP addresses, and Elastic IPs.
-  - **Security:** Utilize security groups and network ACLs for access control.
-  - **Backups:** EBS volumes can be snapshotted for backups, featuring EBS fast snapshot restore for quicker recovery.
-- **Storage Options:**
-  - **Instance Store:** Temporary, block-level storage for an instance. Most cost-effective but data is lost if the instance is stopped or terminated.
-  - **EBS (Elastic Block Store):** Persistent storage volume for data retention, attachable to one instance at a time.
-  - **EFS (Elastic File System):** Scalable file storage for use with multiple EC2 instances.
-- **Cost Optimization Tips:**
-  - **Reserved Instances:** Commit to EC2 capacity for a term to receive a lower rate compared to On-Demand.
-  - **Spot Instances:** Request unused EC2 capacity at steep discounts. Suitable for flexible, fault-tolerant applications.
-  - **Savings Plans:** Offers significant savings over On-Demand in exchange for a commitment to a consistent amount of usage (compute or EC2 instance) for a 1 or 3-year period.
-  - **EC2 Instance Savings Plans:** Specifically for EC2 instances, allowing savings while retaining flexibility to change instance families, OS, and tenancy.
-  - **Compute Savings Plans:** Broadly applicable across EC2, Fargate, and Lambda, providing flexibility and savings.
-  - **Dedicated Hosts:** Ideal for using existing server-bound software licenses or regulatory requirements that forbid multi-tenant hosting.
-  - **Dedicated Instances:** Physically isolated at the hardware level from instances that belong to other AWS accounts.
-- **Performance Optimization Tips:**
-  - **Enhanced Networking:** Utilize for higher performance (more PPS, lower latency).
-  - **EBS-Optimized Instances:** Provides dedicated bandwidth to EBS volumes.
-  - **Placement Groups:** Choose based on the specific needs of your application for performance optimization.
+### EC2 Overview
+Amazon EC2 offers a scalable environment in AWS to launch virtual servers, configure security and networking, and manage storage. EC2 provides various options for flexibility, efficiency, and cost-effectiveness in cloud computing needs.
 
-### Lambda (AWS Lambda)
-- **Features:**
-  - **Serverless Execution:** Automatically manages the computing resources.
-  - **Event-driven:** Runs code in response to triggers such as changes in data, system state, or actions by users.
-  - **Scaling:** Automatically scales with the size of the workload.
-  - **Runtime Support:** Wide range of programming languages supported.
-  - **Stateless:** Each function execution is independent with no affinity to the underlying infrastructure.
-  - **Execution Time Limit:** Max duration for a Lambda function execution is 15 minutes.
-  - **Direct URL Access:** As of 2021, Lambda functions can be invoked directly via HTTPS requests without needing an API Gateway.
-  - **Lambda Layers:** Reuse shared components across multiple Lambda functions.
-  - **Lambda@Edge:** Run Lambda functions at AWS Edge locations for improved latency.
-  - **SnapStart:** Reduces cold start times for Java functions.
-- **Cost Optimization Tips:**
-  - **Provisioned Concurrency:** Minimize latency for predictable workloads.
-  - **Memory Size Optimization:** Adjust function's memory size for cost efficiency without compromising on performance.
-- **Performance Optimization Tips:**
-  - **Reduce Cold Starts:** Utilize SnapStart (for Java functions), keep functions warm, and optimize initialization code.
-  - **Use Lambda Layers:** For sharing common components between functions, reducing deployment package size and possibly cold start time.
-  - **RDS Proxy:** For Lambda functions accessing RDS, use RDS Proxy to manage connections efficiently, improving performance.
-  - **Running Lambda@Edge:** For applications needing lower latency by running code closer to users' locations.
+#### Features
+- **AMI / AMI Builder**: Facilitates creating, configuring, and managing Amazon Machine Images (AMIs), which are templates used to launch new EC2 instances efficiently.
+- **Instance Storage**: Delivers high-performance, temporary, non-persistent local storage directly attached to an instance. Ideal for temporary data processing.
+- **EFS/EBS Connectivity**: Allows instances to connect to Amazon Elastic File System (EFS) for scalable file storage and Amazon Elastic Block Store (EBS) for block storage.
+- **Launch Templates over Launch Configurations**: Modern method for launching instances, offering broader functionality and flexibility compared to the older Launch Configurations.
+- **Hibernating EC2 Instances**: Enables instances to pause operations and save the in-memory state to EBS, allowing for quick resumption without data loss.
 
-### Computer - Supplemental Services
+#### Cost Options
+- **On-Demand Instances**: Best for short-term, irregular workloads without any upfront payment.
+- **On-Demand Capacity Reservations**: Offers guaranteed capacity in a specific AWS region and Availability Zone with flexibility and without long-term commitments.
+- **Reserved Instances**: Provides a significant discount over On-Demand pricing for a commitment to use EC2 over a one or three-year term.
+- **Spot Instances**: Allows users to take advantage of unused EC2 capacity at a substantial discount but with the possibility of instances being interrupted.
+- **Savings Plans**: Offers lower prices in exchange for a commitment to a consistent amount of usage over a one or three-year period.
+- **Compute Savings Plans and EC2 Instance Savings Plans**: Provide flexible pricing options for consistent usage across instance families or specific to instance families in a region.
+- **Defined Duration Spot Instances**: Temporary spot capacity with set durations.
+- **Dedicated Hosts and Dedicated Instances**: Cater to specific needs requiring dedicated physical servers, such as compliance requirements or software licenses.
 
-#### ECS, EKS, Fargate
-- **Key for container management and orchestration.** Understand the distinctions among these services in terms of container management. ECS (Elastic Container Service) and EKS (Elastic Kubernetes Service) provide comprehensive solutions for container orchestration, with ECS being AWS-native and EKS for those preferring Kubernetes. Fargate offers a serverless container execution environment, removing the need to manage servers or clusters.
-- **For those looking for the least overhead in container support,** Fargate is the likely solution, offering a simplified operational model by abstracting the server and cluster management aspect.
+#### Network Options
+- **ENI (Elastic Network Interface)**: Standard network interface for EC2 instances.
+- **EFI (Enhanced Networking)**: Provides higher performance networking capabilities for demanding applications.
+- **EFA (Elastic Fabric Adapter)**: Optimized for high-performance computing (HPC) and machine learning workloads, offering low-latency, high-bandwidth connections.
 
-#### Elastic Beanstalk
-- **Simplifies deploying applications** by handling various provisioning and management tasks such as load balancing, auto-scaling, and application health monitoring. It's an ideal choice for developers who want to deploy their applications without delving into the underlying infrastructure details.
+#### Placement Groups
+- **Cluster**: Positions instances close to each other inside an Availability Zone to benefit from low network latency and high throughput.
+- **Spread**: Distributes instances across different hardware to minimize correlated failures.
+- **Partition**: Segregates instances into logical partitions, suitable for large distributed and replicated workloads across many instances.
 
-#### Batch
-- **Essential for efficiently running batch computing jobs** on AWS, capable of managing hundreds to thousands of jobs. This service automates job scheduling, making it easier to run large-scale batch processes.
+#### Scaling Considerations
+- **Autoscaling**: Dynamically adjusts EC2 capacity according to predefined conditions to maintain application performance.
+- **Scaling Options**: Includes manual scaling, predictive scaling based on machine learning, scheduled scaling for known event times, and automatic scaling.
+- **Normal vs Step-Scaling**: Distinguishes between gradual scaling (normal) and more responsive scaling (step) to handle sudden changes in workload.
+- **Lifecycle Hooks**: Offers the ability to perform custom actions by pausing instances as Auto Scaling launches or terminates them.
+- **Cooldown Periods**: Prevents the scaling process from launching or terminating additional instances before the previous scaling activity takes effect.
+- **AWS Recommendations**: Suggests using target tracking scaling as the most straightforward and effective method to scale automatically.
 
-### Compute - Exam Preparation Tips
+#### Performance Considerations
+- Utilizing placement groups for applications that benefit from low latency and/or high throughput.
+- Choosing the correct instance type based on the workload requirements to optimize performance.
+- Selecting the right network option, such as EFA for HPC, to enhance networking performance.
 
-- **Focus on EC2's detailed options for cost and performance optimization.** Placement groups and their specific use cases are critical to understand for performance-sensitive applications.
-- **Lambda's pricing model** is influenced by the number of requests and the duration of code execution. Optimizing Lambda functions to minimize cold starts and leveraging RDS Proxy for efficient database interactions are key strategies for enhancing performance.
-- **For supplemental services like ECS, EKS, and Fargate,** it's crucial to grasp their primary use cases. Understanding container orchestration and the scenarios where serverless computing with Fargate reduces overhead can be beneficial.
-- **Real-world applications** often combine these compute services to address complex architectural challenges efficiently and cost-effectively. Recognizing when and how to integrate these services is essential for designing optimal AWS solutions.
+#### Cost Considerations
+- Matching the instance size and type to the workload to avoid over-provisioning.
+- Implementing scaling policies to adjust the number of instances dynamically, ensuring you pay only for what you need.
+- Utilizing additional monitoring metrics through CloudAgent installation to make informed decisions about scaling and instance types, further optimizing costs.
+
+---
+
+### Lambda Overview
+AWS Lambda is a serverless computing service that runs code in response to events, automatically managing the underlying compute resources. It enables running code for virtually any type of application or backend service with zero administration.
+
+#### Features
+- **AWS Lambda Pricing**: Charges are based on the number of requests served and the execution duration of the code.
+- **Lambda Function URLs**: Direct invocation of Lambda functions via HTTPS endpoints.
+- **Execution Limit**: Supports up to a 15-minute maximum execution time per request.
+- **Runs in its own VPC**: Ensures security and isolation by running functions in a managed VPC by Lambda.
+
+#### Concurrency Management
+- **Provisioned Concurrency**: Pre-allocates a specified number of Lambda instances for immediate response to events.
+- **Reserved Concurrency**: Guarantees a minimum number of Lambda instances are reserved exclusively for a function, ensuring its availability.
+
+#### Performance Considerations
+- **Cold Start Mitigation**: Utilize Lambda Layers for shared code and libraries, Provisioned Concurrency for pre-warmed functions, and SnapStart for Java functions to reduce initialization times.
+- **Database Connections**: Employ RDS Proxy for efficient and scalable database connections, reducing the overhead of managing connections directly from Lambda functions.
+- **Lambda@Edge**: Execute Lambda functions at AWS Edge locations to reduce latency by processing requests closer to the end user.
+
+#### Cost Considerations
+- Eligible for Compute Savings Plans, allowing for reduced costs through a commitment to a consistent level of compute usage.
+
+#### Supplemental Services
+- **Fargate**: Provides a serverless compute engine for containers, eliminating the need to manage servers or clusters.
+- **EKS**: Amazon Elastic Kubernetes Service is a managed service that makes it easy to run Kubernetes on AWS without needing to install and operate your own Kubernetes control plane.
+- **ECS**: Amazon Elastic Container Service is a fully managed container orchestration service, providing an easy way to run and scale containerized applications on AWS.
+- **Batch**: AWS Batch enables developers, scientists, and engineers to easily and efficiently run hundreds of thousands of batch computing jobs on AWS.
+- **Glue**: A fully managed extract, transform, and load (ETL) service that makes it easy for customers to prepare and load their data for analytics.
+- **Beanstalk**: AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web applications and services developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, Nginx, Passenger, and IIS.
