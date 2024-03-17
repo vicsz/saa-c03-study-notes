@@ -16,6 +16,14 @@
 
 ## COMPUTE
 
+Choosing between EC2, Fargate, and Lambda:
+
+- **EC2**: Offers the most control with the highest overhead. Ideal for applications requiring specific configurations.
+- **Fargate**: Managed container service with moderate overhead. Easier cloud migration with less code rewriting compared to Lambda. Suitable for those seeking simplicity without server management.
+- **Lambda**: Least overhead with automatic scaling and server management. Best for event-driven, stateless applications. Requires more code adjustments for migration compared to Fargate.
+
+In essence, EC2 for control, Fargate for managed containers with ease of migration, and Lambda for serverless simplicity.
+
 ### AWS EC2 
 Amazon EC2 offers a scalable environment in AWS to launch virtual servers, configure security and networking, and manage storage. EC2 provides various options for flexibility, efficiency, and cost-effectiveness in cloud computing needs.
 
