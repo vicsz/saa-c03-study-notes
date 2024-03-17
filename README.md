@@ -232,3 +232,59 @@ Amazon Elastic File System (EFS) is a fully managed, scalable file storage solut
 - **TimeStream**: Time series database service for IoT and operational applications.
 - **AWS Backup**: Centralized backup service across AWS services.
 - **AWS Schema Conversion Tool**: Facilitates database migration projects by converting the source database schema and a majority of the custom code to a format compatible with the target database.
+
+---
+
+## APPLICATION INTEGRATION
+
+### AWS SNS (Simple Notification Service)
+Amazon SNS is an event-driven messaging service that follows the publish-subscribe (pub-sub) model, efficiently delivering messages using a push mechanism. It's designed for high-throughput, multi-subscriber messaging.
+
+#### Features
+- **Event-driven Computing**: Facilitates decoupled communication between producing and consuming services.
+- **Pub-Sub Messaging**: Enables messages to be pushed to multiple subscribers, supporting a wide variety of communication patterns.
+- **Message Fanout**: Allows a single message published to an SNS topic to be delivered to multiple subscribers, enabling parallel processing.
+- **Reliability and Durability**: While SNS ensures message delivery to subscribers, it doesn't inherently guarantee message order or prevent duplicates, making it less suitable for applications requiring strict message sequencing or uniqueness.
+
+---
+
+### AWS SQS (Simple Queue Service)
+Amazon SQS offers scalable message queuing services, supporting both standard and FIFO (First-In-First-Out) queues. It enables decoupled component interaction in distributed systems through a pull-based (polling) messaging mechanism.
+
+#### Features
+- **Standard vs. FIFO Queues**: Standard queues offer at-least-once delivery and best-effort ordering, while FIFO queues guarantee exactly-once processing and maintain order.
+- **Pull-Based Messaging**: Consumers poll the queue for messages, allowing for controlled message processing.
+- **VPC Integration**: SQS can be accessed within a VPC, ensuring secure and private message transactions.
+- **Long Polling vs. Short Polling**: Controls how the queue is polled for messages, with long polling reducing the number of empty responses by allowing SQS to wait until a message is available.
+- **Dead-letter Queues**: Help manage messages that can't be processed successfully, reducing the risk of losing messages.
+- **Extended Client Library for Java**: Enables sending larger messages than the standard SQS size limit by storing message payloads in S3.
+- **Visibility Timeout**: Ensures messages are not visible to other consumers after being polled, preventing duplicate processing.
+
+---
+
+### AWS EventBridge
+AWS EventBridge is a serverless event bus that makes it easy to connect applications with data from a variety of sources. It is designed for event-driven architectures, offering a robust solution for routing events between AWS services, integrated SaaS applications, and custom applications.
+
+#### Use Cases
+- **Daily Triggers or AWS Events**: Ideal for applications requiring scheduled events or responding to AWS service actions rather than application-specific messages.
+- **Application Integration**: Facilitates easy integration and decoupling of microservices, distributed systems, and serverless applications.
+
+---
+
+### AWS Kinesis
+Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data, allowing for timely insights and reactions.
+
+#### Components
+- **Kinesis Firehose**: Simplifies loading streaming data into AWS destinations such as S3, Redshift, Elasticsearch, etc. Best for straightforward data loading needs.
+- **Kinesis Streams**: Offers more complex data processing capabilities, supporting detailed real-time analytics. Utilizes shards to manage data throughput and order.
+- **Kinesis Analytics**: Enables real-time processing of streaming data, supporting filtering, aggregation, and transformation.
+
+---
+
+### Application Integration Supplemental Services
+
+- **AppSync**: Allows for the creation of flexible, scalable applications on a GraphQL service that integrates data from multiple sources.
+- **Step Functions**: Provides serverless orchestration for complex workflows, enabling applications to coordinate multiple AWS services into serverless workflows.
+- **SWF (Simple Workflow Service)**: Deprecated in favor of Step Functions, which offer more advanced and flexible workflow orchestration capabilities.
+- **AWS Data Pipeline**: Automates the movement and transformation of data. Unlike Kinesis, which is designed for real-time data processing, Data Pipeline is optimized for scheduled batch processing.
+
