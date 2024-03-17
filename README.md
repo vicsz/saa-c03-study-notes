@@ -10,7 +10,6 @@
 
 #### Sample Questions
 - [AWS Certified Solutions Architect Associate Sample Questions](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Sample-Questions.pdf)
-- [Free Braindumps SAA-C03 Questions](https://free-braindumps.com/amazon/free-saa-c03-braindumps.html?p=5)
 
 #### Good Write-up on VPC’s and Networking
 - [AWS VPC Core Concepts Analogy Guide](https://start.jcolemorrison.com/aws-vpc-core-concepts-analogy-guide/)
