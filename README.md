@@ -193,11 +193,12 @@ Amazon RDS is a managed relational database service that simplifies setting up, 
 #### High Availability Considerations
 - Deploy Multi-AZ or Aurora Global Database for enhanced availability and data durability.
 
-#### Backup Options
-- **Automated Backups**: Provides a daily snapshot and captures transaction logs.
-- **Snapshot Backups**: User-initiated snapshots of your database instance that are retained until explicitly deleted.
-- **AWS Backup**: Offers a centralized solution for backing up RDS and other AWS services.
-- **Cross-Region Automated Backups**: Automates the replication of snapshots and transaction logs across AWS regions.
+#### Backup Options for RDS
+- **Automated Backups**: Provides a daily snapshot and captures transaction logs. _Automated backups are retained for a period of up to **35 days**_. **_This option has the 35-day retention policy._**
+- **Snapshot Backups**: User-initiated snapshots of your database instance that are retained until explicitly deleted. These snapshots can be initiated at any time and offer flexibility for backup retention beyond the automated backups' limit.
+- **AWS Backup**: Offers a centralized solution for backing up RDS and other AWS services, providing more comprehensive backup management capabilities across your AWS environment.
+- **Cross-Region Automated Backups**: Automates the replication of snapshots and transaction logs across AWS regions for disaster recovery purposes, enhancing data durability and availability.
+
 
 ---
 
