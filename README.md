@@ -169,7 +169,7 @@ Amazon DynamoDB is a NoSQL database service known for its key/value storage, mil
 
 ---
 
-#### AWS RDS
+### AWS RDS
 Amazon RDS is a managed relational database service that simplifies setting up, operating, and scaling a relational database in the cloud. It supports several database engines and combines the reliability of EBS-backed storage with the convenience of automated backups.
 
 #### Features
@@ -201,7 +201,7 @@ Amazon RDS is a managed relational database service that simplifies setting up, 
 
 ---
 
-#### AWS EBS
+### AWS EBS
 
 #### Overview
 Amazon Elastic Block Store (EBS) provides block-level storage volumes for use with EC2 instances, offering high availability and durability. EBS volumes can be used as primary storage for databases or file systems and support backups through AWS Backup and the Data Lifecycle Manager.
@@ -224,7 +224,7 @@ Amazon Elastic Block Store (EBS) provides block-level storage volumes for use wi
 
 ---
 
-#### AWS EFS
+### AWS EFS
 Amazon Elastic File System (EFS) is a fully managed, scalable file storage solution for use with AWS Cloud services and on-premises resources. It supports NFS and automatically scales without needing to provision storage or throughput.
 
 #### Features
