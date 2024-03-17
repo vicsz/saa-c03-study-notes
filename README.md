@@ -288,3 +288,54 @@ Amazon Kinesis makes it easy to collect, process, and analyze real-time, streami
 - **SWF (Simple Workflow Service)**: Deprecated in favor of Step Functions, which offer more advanced and flexible workflow orchestration capabilities.
 - **AWS Data Pipeline**: Automates the movement and transformation of data. Unlike Kinesis, which is designed for real-time data processing, Data Pipeline is optimized for scheduled batch processing.
 
+---
+
+## Networking
+
+### Direct Connect
+Provides a dedicated, physical connection between your on-premises network and AWS. It ensures minimal impact on internet connectivity for internal users and supports more time-sensitive data transfer.
+
+### VPC (Virtual Private Cloud)
+- **VPC Peering**: Allows networking connections between two VPCs, enabling you to route traffic between them using private IP addresses.
+- **Private vs Public Subnets**: Public subnets have routes to the Internet Gateway, making them accessible from the internet, while private subnets do not, restricting access to internal network traffic.
+- **NAT Gateways**: Used instead of NAT instances (which are legacy) to allow outbound internet traffic from instances in private subnets, commonly used for software patching.
+- **Internet Gateways**: Connects your VPC to the internet, allowing resources in your public subnets to send and receive internet traffic.
+- **ACL (Access Control Lists)**: Acts as a firewall for controlling traffic into and out of a subnet.
+- **Security Group**: Acts as a virtual firewall for an instance to control inbound and outbound traffic. Security groups do not support DENY rules.
+- **VPC Flow Logs**: Capture information about the IP traffic going to and from network interfaces in your VPC, useful for monitoring and troubleshooting connectivity issues.
+
+### VPN (Virtual Private Network)
+Enables secure communication between your corporate network and your VPC over the internet, providing an encrypted and secure tunnel for data transmission.
+
+### Load Balancers (ELBs)
+- **SSL Offloading**: Allows the load balancer to handle the SSL termination, removing the SSL encryption from incoming traffic, which offloads the encryption task from the backend servers.
+- **ELB Types**:
+  - **Network Load Balancers (NLBs)**: Best for TCP/UDP traffic, operates at the connection level (Layer 4).
+  - **Application Load Balancers (ALBs)**: Best for HTTP/HTTPS traffic, operates at the request level (Layer 7), supporting advanced routing, load balancing features, and HTTP health checks.
+  - **Gateway Load Balancers**: Ideal for deploying third-party virtual appliances.
+  - **Classic Load Balancers**: Legacy load balancers that support basic load balancing across multiple EC2 instances.
+- **Health Checks**: Monitor the health of your instances and ensure traffic is only routed to healthy instances.
+- **Listener Rules on ALBs**: Define how incoming traffic should be routed based on conditions like URL path or request method.
+
+### AWS WAF (Web Application Firewall)
+Protects your web applications from common web exploits such as SQL injection and cross-site scripting (XSS) attacks with customizable, rule-based control.
+
+### Route 53
+A highly available and scalable DNS web service, featuring domain registration, DNS routing, and health checking capabilities.
+
+### AWS Firewall Manager
+Simplifies your AWS WAF, AWS Shield Advanced, and VPC security groups administration and maintenance tasks across multiple accounts and resources.
+
+### API Gateway
+Provides a scalable solution for creating, publishing, maintaining, monitoring, and securing REST, HTTP, and WebSocket APIs at any scale.
+
+### CloudFront
+A fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency and high transfer speeds.
+
+### AWS Global Accelerator
+Improves the availability and performance of your applications with global traffic routing optimized by the AWS global network. Ideal for non-HTTP use cases like gaming (UDP), IoT (MQTT), or VoIP.
+
+### AWS PrivateLink
+Provides private connectivity between VPCs, AWS services, and on-premises applications, securely on the AWS network. Ideal for accessing AWS services or exposing your services to other VPCs without exposing data to the public internet.
+
+---
