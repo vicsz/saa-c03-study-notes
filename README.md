@@ -274,6 +274,16 @@ Amazon Elastic File System (EFS) is a fully managed, scalable file storage solut
 
 ## APPLICATION INTEGRATION
 
+Selecting the right AWS application integration service depends on your messaging, event-driven architecture, and data streaming needs:
+
+- **SNS (Simple Notification Service)**: Best for pub-sub messaging and fanning out messages to multiple subscribers.
+- **SQS (Simple Queue Service)**: Ideal when ensuring all notifications are processed is crucial. Choose standard queues for at-least-once delivery, or FIFO for exactly-once processing and order maintenance.
+- **EventBridge**: Use for integrating AWS or external events into your applications, particularly for scheduled events or AWS service triggers.
+- **Kinesis Firehose**: Opt for straightforward, near-real-time data loading into AWS services like S3 or Redshift with minimal processing.
+- **Kinesis Streams**: Select for real-time data streaming and complex processing needs, offering scalability for large data streams.
+- **Kinesis Analytics**: Best for real-time analytics on streaming data, enabling filtering, aggregation, and transformation using SQL.
+
+
 ### AWS SNS (Simple Notification Service)
 Amazon SNS is an event-driven messaging service that follows the publish-subscribe (pub-sub) model, efficiently delivering messages using a push mechanism. It's designed for high-throughput, multi-subscriber messaging.
 
