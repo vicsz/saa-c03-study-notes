@@ -25,8 +25,8 @@ D) Define a custom route table with a route to the internet gateway for internet
 E) Configure a NAT instance in a private subnet."
 
 Given this scenario, please:
-1. **Explain the supplied problem **
-2. **Explain the correct answer**: 
+1. **Explain the supplied problem**
+2. **Explain the correct answer**
 3. **Explain the wrong answer**
 4. **Offer any rules of thumb for the exam**: Provide general principles or guidelines that could help in answering similar questions on the AWS Solutions Architect Associate exam"
 
