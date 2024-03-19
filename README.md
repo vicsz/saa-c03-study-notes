@@ -14,7 +14,35 @@
 #### Good Write-up on VPC’s and Networking
 - [AWS VPC Core Concepts Analogy Guide](https://start.jcolemorrison.com/aws-vpc-core-concepts-analogy-guide/)
 
-## ChatGPT Study Aid for AWS Solutions Architect Associate Exam Examples 
+## Quick Study Tips for the AWS Architect Associate Exam
+
+### Understanding Core vs. Supplementary AWS Services
+- Focus on gaining a solid understanding of core technologies including EC2, Lambda, S3, DynamoDB, CloudFront, and RDS for cost optimization and performance optimization strategies.
+- For core services, beyond the basics, knowing some specific details helps, but extensive memorization of numerical values or default settings is not required. The aim is to grasp how to effectively utilize these services within architectural solutions.
+
+### Key Details to Remember
+The extent of memorizing numerical values for the exam is limited to certain helpful specifics, such as:
+- **AWS Lambda**: Max invocation time is 15 minutes. Use alternatives like AWS Batch for longer-running tasks.
+- **Backup Retention**: Regular backup maximum retention is 35 days. For longer retention needs, AWS Backup is the go-to solution.
+- **AWS Snowball**: Ideal for data transfer volumes in the tens of Terabytes, marking its efficiency threshold for large-scale data migrations.
+
+### High-Level View of Supplementary Services
+For non-core services, understanding what they do and their use cases, along with any associated **_keywords_**, is sufficient. Examples include:
+- **AWS Neptune**: A managed graph database service. _Keywords_: **_Graph Database_**.
+- **AWS Macie**: Security service to help identify and protect sensitive information. _Keywords_: **_PII Detection_**.
+- **AWS AppFlow**: Facilitates integration between AWS services and SaaS applications. _Keywords_: **_SaaS Integration_**.
+- **AWS Textract**: Extracts text and data from images or documents. _Keywords_: **_Text Extraction_**.
+- **AWS AppSync**: Manages data for mobile and web applications using a GraphQL service. _Keywords_: **_GraphQL API_**.
+- etc .. 
+
+Remember, for non-fundamental services, just knowing their functionality, use cases, and any key terms they align with is what's important for the exam.
+
+### Exam Preparation Strategies
+- Practice exams are crucial to understanding the depth and focus required, identifying areas for improvement.
+- Utilize **ChatGPT** extensively for clarifying questions, concept understanding, and study tips. ChatGPT 4.0, with its advanced capabilities, can significantly streamline your study process compared to more traditional methods.
+
+
+## ChatGPT Prompt Examples  
 
 **Study Scenario and Prompt**:
 "A company runs a public-facing three-tier web application in a VPC across multiple Availability Zones. Amazon EC2 instances for the application tier running in private subnets need to download software patches from the internet. However, the EC2 instances cannot be directly accessible from the internet. Which actions should be taken to allow the EC2 instances to download the needed patches? (Select TWO.) 
