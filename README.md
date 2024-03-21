@@ -169,25 +169,25 @@ Amazon S3 is a key/value bucket store designed for storing large files with high
  
 #### Features
 - **S3 Storage Classes**: Includes S3 Standard, S3 Express One Zone, S3 Standard-Infrequent Access, S3 Glacier Instant Retrieval, S3 Glacier Flexible Retrieval, and S3 Glacier Deep Archive for diverse storage needs and access patterns.
+- **S3 Lifecycle Management**: Automates moving files between different storage classes and managing expiration of objects.
+- **S3 Intelligent Tiering**: Automatically moves objects between different tiers based on access patterns.
 - **S3 Select**: Allows retrieval of specific data from objects using SQL expressions, enhancing performance and reducing costs by minimizing the amount of data loaded and processed.
 - **S3 Pre-signed URLs**: Generate temporary URLs for secure sharing or uploading of files without revealing bucket contents.
 - **S3 Multipart Upload**: Enables large files to be uploaded in parts, improving transfer speeds and reliability.
 - **S3 Transfer Acceleration**: Speeds up file transfers to and from S3 using Amazon CloudFront's globally distributed edge locations.
-- **S3 Lifecycle Management**: Automates moving files between different storage classes and managing expiration of objects.
 - **S3 Versioning**: Keeps multiple versions of an object in a bucket, protecting against unintended overwrites and deletions. It is disabled by default.
 - **S3 CORS**: Enables web applications to request resources from a different domain.
 - **S3 Encryption**: Offers methods for encrypting objects stored in S3, enhancing data security.
 - **S3 Object Lock**: Allows users to store objects using a write-once-read-many (WORM) model with two modes: Governance and Compliance Mode, supporting legal holds and retention periods.
 - **S3 Glacier**: A secure, durable, and low-cost storage class for data archiving and long-term backup.
-- **MFA Delete**: Adds an additional layer of security by requiring MFA to delete objects.
-- **Requester Pays**: Enables bucket owners to shift data transfer charges to requesters.
-- **Amazon S3 Intelligent Tiering**: Automatically moves objects between different tiers based on access patterns.
-- **S3 Object Lambda**: Allows adding custom code to S3 GET, HEAD, and LIST requests for processing data on retrieval.
-- **AWS Athena**: Provides SQL querying of S3 data in place, ideal for analyzing data directly in S3.
-- **CloudFront**: Can host static websites directly from S3 buckets.
 - **S3 Storage Lens**: Offers insights into access patterns and identifies opportunities for cost optimization.
 - **S3 Analytics**: Tools for analyzing storage access patterns, aiding in lifecycle policy decisions.
 - **S3 Outposts**: Brings S3 to on-premises AWS Outposts environments for a consistent hybrid experience.
+- **S3 Object Lambda**: Allows adding custom code to S3 GET, HEAD, and LIST requests for processing data on retrieval.
+- **MFA Delete**: Adds an additional layer of security by requiring MFA to delete objects.
+- **Requester Pays**: Enables bucket owners to shift data transfer charges to requesters.
+- **AWS Athena**: Provides SQL querying of S3 data in place, ideal for analyzing data directly in S3.
+- **CloudFront**: Can host static websites directly from S3 buckets.
 
 #### Cost Considerations
 - **Intelligent Tiering**: Best for unpredictable file access patterns, automatically optimizing costs.
@@ -241,8 +241,8 @@ Amazon RDS is a managed relational database service that simplifies setting up, 
 - **Database Engines**: Supports MySQL, PostgreSQL, MariaDB, Oracle, and SQL Server.
 - **Amazon RDS Custom for Oracle**: Provides access to underlying Oracle instance settings for advanced configuration.
 - **Aurora**: An AWS-designed database that offers compatibility with MySQL and PostgreSQL, featuring serverless scaling, global distribution, and efficient cloning capabilities.
-- **RDS Event Notification**: Alerts users about changes to the database infrastructure.
-- **RDS Proxy**: Manages database connections, improving scalability and security.
+- **RDS Event Notification**: Alerts users about changes to the database infrastructure (but not data in the tables themselves). 
+- **RDS Proxy**: Manages database connections, improving scalability and security. 
 - **Read Replicas and Multi-AZ Deployments**: Enhances database performance and availability.
 - **Auto-scaling**: Automatically adjusts storage capacity based on demand.
 - **Backup Options**: Includes automated backups, cross-region backups, snapshot backups, AWS Backups, and replication to a standby database for comprehensive data protection.
